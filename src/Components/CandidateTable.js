@@ -4,18 +4,17 @@ import Table from "react-bootstrap/Table";
 
 export default function CandidateTable(props) {
         return (
-            <Table stripped bordered>
+            <Table striped bordered hover variant="secondary">
                 <thead>
                     <tr>
-                        <th>Candidate Name</th>
-                        <th>Job Title</th>
-                        <th>Candidate Status</th>
-                        <th>Update</th>
-                        <th>Delete</th>
+                        <th id="tableColor">Candidate Name</th>
+                        <th id="tableColor">Job Title</th>
+                        <th id="tableColor">Candidate Status</th>
+                        <th id="tableColor">Update</th>
+                        <th id="tableColor">Delete</th>
                     </tr>
                 </thead>
-                <tbody> 
-                    <tr>
+                <tbody id="rowColor"> 
                         {props.candidates.map((candidate) => (
                             <Candidate
                                 key={candidate.id}
@@ -24,7 +23,6 @@ export default function CandidateTable(props) {
                                 clickUpdate={props.clickUpdate}
                             />
                         ))}
-                    </tr>
                 </tbody>
             </Table>
         );

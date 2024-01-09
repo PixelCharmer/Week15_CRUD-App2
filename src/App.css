@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Salsa&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap');
 
 #newCandidateForm {
     border-radius: 25px;
@@ -32,6 +32,17 @@
     margin-bottom: 30px;
     padding-top: 20px;
     height: 100px;
-    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Pathway Gothic One', sans-serif;
     font-size: 50px;
 }
+
+#tableColor {
+    background-color: rgb(180, 204, 205);
+    border: 1px solid slategray;
+}
+
+#rowColor {
+    border: 1px solid slategray;
+}
+
+

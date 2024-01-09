@@ -1,12 +1,9 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import UpdateCandidateForm from "./UpdateCandidateForm";
-import { Table } from "react-bootstrap";
 
 export default function Candidate(props) {
     return (
-        <Table stripped bordered hover>
-            <tbody>
                 <tr>
                     <td>{props.candidate.candidateName}</td>
                     <td>{props.candidate.jobTitle}</td>
@@ -28,8 +25,5 @@ export default function Candidate(props) {
                         </Button>
                     </td>
                 </tr>
-            </tbody>
-        </Table>
     );
 }
-
