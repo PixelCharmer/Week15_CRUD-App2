@@ -5,39 +5,37 @@ import Form from "react-bootstrap/Form";
 
 function UpdateCandidateForm(props) {
     const [show, setShow] = useState(false);
-    const [updatedCandidate, setUpdatedCandidate] = useState({ ...props.Candidate });
+    const [updatedCandidate, setUpdatedCandidate] = useState({ ...props.candidate });
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     function handleChange(e) {
         const { name, value } = e.target;
-        setUpdatedProject((prevData) => {
-          return {
-            ...prevData,
-            [name]: value,
-          };
+        setUpdatedCandidate((prevData) => {
+            return {
+                ...prevData,
+                [name]: value,
+            };
         });
     }
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(updatedCandidate);
         props.clickUpdate(updatedCandidate);
         handleClose();
     }
-    
 
     return (
         <>
-            <Button type="button" class="btn btn-info" size="sm" onClick={handleShow}>
+            <Button type="submit" className="btn btn-info" size="sm" onClick={handleShow}>
                 Update
             </Button>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title className="fs-3 fw-bold">
-                        Update for: <br></br> {props.Candidate.candidateName}
+                        Update for: <br></br> {updatedCandidate?.candidateName || ''}
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -49,40 +47,15 @@ function UpdateCandidateForm(props) {
                                     placeholder="Enter Candidates Name"
                                     type="text"
                                     id="nameUpdate"
-                                    name="name"
+                                    name="candidateName"
                                     onChange={handleChange}
-                                    value={updatedCandidate.candidateName}
+                                    value={updatedCandidate?.candidateName || ''}
                                     required
                                 />
                             </Form.Group>
                         </div>
-                        <div className="row">
-                            <Form.Control className="col-4 mb-3">
-                                <Form.Label>Job Title</Form.Label>
-                                <Form.Control
-                                    placeholder="Enter Job Title"
-                                    type="text"
-                                    id="updateJob"
-                                    name="job"
-                                    onChange={handleChange}
-                                    value={updatedCandidate.jobTitle}
-                                />
-                            </Form.Control>
-                        </div>
-                        <div className="row">
-                            <Form.Control className="col-4 mb-3">
-                                <Form.Label>Candidate Status</Form.Label>
-                                <Form.Control
-                                    placeholder="Update Candidate Status"
-                                    type="text"
-                                    id="updateStage"
-                                    name="stage"
-                                    onChange={handleChange}
-                                    value={updatedCandidate.stage}
-                                />
-                            </Form.Control>
-                        </div>
-                        <Button type="button" class="btn btn-success">
+                        {/* Other form fields go here */}
+                        <Button type="submit" className="btn btn-success">
                             Update Candidate Record
                         </Button>
                     </Form>
@@ -91,6 +64,5 @@ function UpdateCandidateForm(props) {
         </>
     );
 }
-
 
 export default UpdateCandidateForm;

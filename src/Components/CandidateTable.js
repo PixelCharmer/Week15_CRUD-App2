@@ -1,16 +1,16 @@
-import { useState} from "react";
+import React from "react";
 import Candidate from "./Candidate";
 import Table from "react-bootstrap/Table";
 import Card from "react-bootstrap/Card";
 
 export default function CandidateTable(props) {
     return (
-        <Card className="m-3" id="tableCard">
-            <Card.Header className="text-center">
+        <Card className="m-3 bg-success">
+            <Card.Header className="text-center text-white fs-4 fw-bold">
                 Candidates In Process
             </Card.Header>
             <Card.Body className="table-responsive">
-                <Table className="table table-hover table-striped">
+                <Table striped hover>
                     <thead>
                         <tr>
                             <th scope="col">Candidate Name</th>
@@ -21,8 +21,9 @@ export default function CandidateTable(props) {
                         </tr>
                     </thead>
                     <tbody>
-                        {props.Candidate.map((Candidate) => (
+                        {props.candidates.map((candidate) => (
                             <Candidate
+                                key={candidate.id} // Ensure that candidate.id is unique
                                 candidate={candidate}
                                 clickDelete={props.clickDelete}
                                 clickUpdate={props.clickUpdate}

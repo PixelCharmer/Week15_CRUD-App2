@@ -1,10 +1,11 @@
-import UpdateCandidateForm from "./UpdateCandidateForm";
+import React from "react";
 import Button from "react-bootstrap/Button";
+import UpdateCandidateForm from "./UpdateCandidateForm";
 
 export default function Candidate(props) {
     return (
         <tr>
-            <td scope="row">{props.candidate.candidateName}</td>
+            <td>{props.candidate.candidateName}</td>
             <td>{props.candidate.jobTitle}</td>
             <td>{props.candidate.stage}</td>
             <td>
@@ -15,9 +16,10 @@ export default function Candidate(props) {
             </td>
             <td>
                 <Button
+                    type="submit"
                     variant="danger"
                     size="sm"
-                    onClick={() => props.clickDelete(props.project.id)}
+                    onClick={() => props.clickDelete(props.candidate.id)}
                 >
                     Delete
                 </Button>
@@ -25,3 +27,4 @@ export default function Candidate(props) {
         </tr>
     );
 }
+

@@ -1,81 +1,93 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import ProjectTable from "./Components/ProjectTable";
-import AddProjectForm from "./Components/AddProjectForm";
 import AddCandidateForm from "./Components/AddCandidateForm";
 import CandidateTable from "./Components/CandidateTable";
 
-
 function App() {
+  const URL = "https://659afe2cd565feee2daabf11.mockapi.io/api/tracker";
+  const [candidates, setCandidates] = useState([]);
 
-  const URL = "https://659afe2cd565feee2daabf11.mockapi.io/api/tracker"
-
-
-  const getCandidates = async() => {
-    const response = await fetch(URL);
-    const data = await response.json();
-    setCandidates(data);
-    //.then((data) => data.json())
-    //.then((data) => setCandidates(data));
+  const getCandidates = async () => {
+    try {
+      const response = await fetch(URL);
+      if (!response.ok) {
+        throw new Error("Failed to fetch candidates");
+      }
+      const data = await response.json();
+      setCandidates(data);
+    } catch (error) {
+      console.error("Error fetching candidates:", error.message);
+    }
   };
 
   useEffect(() => {
-    getCandidates()
+    getCandidates();
   }, []);
 
   const deleteCandidate = async (idToDelete) => {
-    await fetch(`${URL}/${idToDelete}`, {
+    try {
+      await fetch(`${URL}/${idToDelete}`, {
+        method: "DELETE",
+      });
 
-      method: "DELETE",
-    });
-    setCandidates(candidates.filter((candidate) => candidate.id !== idToDelete));
-    //.then(() => getCandidates());
+      setCandidates((prevCandidates) =>
+        prevCandidates.filter((candidate) => candidate.id !== idToDelete)
+      );
+    } catch (error) {
+      console.error("Error deleting candidate:", error.message);
+    }
   };
 
   const postNewCandidate = async (newCandidate) => {
-    const response = await fetch(URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newCandidate),
-    }); 
-    const newCandidateWithId = await response.json();
-    setCandidates([...candidates, newCandidateWithId]);
-    //.then(() => getCandidates());
+    try {
+      const response = await fetch(URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newCandidate),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to add new candidate");
+      }
+
+      const newCandidateWithId = await response.json();
+      setCandidates((prevCandidates) => [...prevCandidates, newCandidateWithId]);
+    } catch (error) {
+      console.error("Error adding new candidate:", error.message);
+    }
   };
 
-
-  const updateCandidate = async (updateCandidate) => {
-    const response = await fetch(`${URL}/${updatedProject.id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updatedProject),
-    });
-
-    const updatedCandidateResponse = await response.json();
-      const newCandidateArray = candidates.map((candidate) => {
-        if (candidate.id === updateCandidateResponse.id) {
-          return updatedCandidateResponse;
-        } else {
-          return candidate;
-        }
+  const updateCandidate = async (updatedCandidate) => {
+    try {
+      const response = await fetch(`${URL}/${updatedCandidate.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedCandidate),
       });
-      setProjects(newCandidateArray);
 
-      //.then(() => getProjects());
-    };
+      if (!response.ok) {
+        throw new Error("Failed to update candidate");
+      }
 
-return (
-  <div className="App" id="pageTitle">
-    <h1 className="display-6 fw-bold" id="header">Candidate Tracker</h1>
-    <AddCandidateForm clickAdd={postNewCandidate} />
-    <CandidateTable
-      candidates={candidates}
-      clickDelete={deleteCandidate}
-      clickUpdate={updateCandidate}
-    />
-  </div>
-);
+      const updatedCandidateResponse = await response.json();
+      const newCandidateArray = candidates.map((candidate) =>
+        candidate.id === updatedCandidateResponse.id ? updatedCandidateResponse : candidate
+      );
+      setCandidates(newCandidateArray);
+    } catch (error) {
+      console.error("Error updating candidate:", error.message);
+    }
+  };
 
+  return (
+    <div className="App" id="pageTitle">
+      <h1 className="display-6 fw-bold" id="header">
+        Candidate Tracker
+      </h1>
+      <AddCandidateForm clickAdd={postNewCandidate} />
+      <CandidateTable candidates={candidates} clickDelete={deleteCandidate} clickUpdate={updateCandidate} />
+    </div>
+  );
 }
 
 export default App;
