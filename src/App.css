@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Salsa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+
+#newCandidateForm {
+    border-radius: 25px;
+    padding: 20px;
+    width: 800px;
+    box-shadow: 20px 20px 50px grey;
+    background-color: rgb(68, 160, 217, 0.3);
+    color: black;
+    font-family: 'Salsa', cursive;
+}
+
+#addBtn {
+    margin-top: 13px;
+    border: 1px solid gray;
+    padding: 9px;
+}
+
+
+#cardheader {
+    border-radius: 15px;
+    border: 2px solid rgb(99, 93, 93, 0.3);
+    background-color: rgb(60, 218, 229, 0.3);
+    color: black;
+    font-family: 'Rowdies', sans-serif;
+}
+
+#header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    height: 100px;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 50px;
+}

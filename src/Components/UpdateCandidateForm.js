@@ -50,11 +50,44 @@ function UpdateCandidateForm(props) {
                                     name="candidateName"
                                     onChange={handleChange}
                                     value={updatedCandidate?.candidateName || ''}
-                                    required
                                 />
                             </Form.Group>
                         </div>
-                        {/* Other form fields go here */}
+                        <div className="row">
+                            <Form.Group className="mb-3">
+                                <Form.Label>Job Title</Form.Label>
+                                <Form.Control
+                                    placeholder="Enter Job Title"
+                                    type="text"
+                                    id="jobTitleUpdate"
+                                    name="jobTitle"
+                                    onChange={handleChange}
+                                    value={updatedCandidate?.jobTitle || ''}
+                                />
+                            </Form.Group>
+                        </div>
+                        <div className="row">
+                            <Form.Group className="mb-3">
+                                <Form.Label>Candidate Name</Form.Label>
+                                <Form.Select
+                                    placeholder="What is the candidate's status?"
+                                    id="stageInput"
+                                    type="text"
+                                    name="stage"
+                                    value={updatedCandidate.stage}
+                                    onChange={handleChange}
+                                >
+                                    <option value="--Current Status--">--Current Status--</option>
+                                    <option value="Under Review">Under Review</option>
+                                    <option value="Interviewing">Interviewing</option>
+                                    <option value="Pending Feedback">Pending Feedback</option>
+                                    <option value="Offer Extended">Offer Extended</option>
+                                    <option value="Offer Rescinded">Offer Rescinded</option>
+                                    <option value="Offer Accepted">Offer Accepted</option>
+                                    <option value="Offer Rejected">Offer Rejected</option>
+                                </Form.Select>
+                            </Form.Group>
+                        </div>
                         <Button type="submit" className="btn btn-success">
                             Update Candidate Record
                         </Button>

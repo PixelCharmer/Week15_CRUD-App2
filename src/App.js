@@ -82,7 +82,7 @@ function App() {
   return (
     <div className="App" id="pageTitle">
       <h1 className="display-6 fw-bold" id="header">
-        Candidate Tracker
+        CANDIDATE TRACKER
       </h1>
       <AddCandidateForm clickAdd={postNewCandidate} />
       <CandidateTable candidates={candidates} clickDelete={deleteCandidate} clickUpdate={updateCandidate} />
