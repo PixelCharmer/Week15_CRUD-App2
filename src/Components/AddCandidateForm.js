@@ -3,6 +3,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 
+// Uses the useState hook to manage the state
+// Created a state object containing information about the new candidate, including candidateName, jobTitle, and stage
 export default function AddCandidateForm(props) {
     const [show, setShow] = useState(false);
     const [newCandidate, setNewCandidate] = useState({
@@ -11,6 +13,7 @@ export default function AddCandidateForm(props) {
         stage: "",
     });
 
+    // Handles changes in the form inputs and updates the newCandidate state accordingly
     function handleChange(e) {
         const { name, value } = e.target;
         setNewCandidate((prevData) => {
@@ -21,6 +24,7 @@ export default function AddCandidateForm(props) {
         });
     }
 
+    // Handles the form submission
     function handleSubmit(e) {
         e.preventDefault();
 
@@ -41,6 +45,8 @@ export default function AddCandidateForm(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    // Renders a button labeled "Create New Candidate" Clicking this button triggers the display of the modal
+    // The modal includes a form with fields for candidateName, jobTitle, and stage
     return (
         <>
             <Button variant="primary" onClick={handleShow}>

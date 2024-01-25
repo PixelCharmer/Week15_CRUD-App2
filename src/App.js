@@ -3,10 +3,13 @@ import { useEffect, useState } from "react";
 import AddCandidateForm from "./Components/AddCandidateForm";
 import CandidateTable from "./Components/CandidateTable";
 
+// initializes the URL variable with the mock API endpoint
+// uses the useState hook to manage the candidates state, which holds an array of candidate data
 function App() {
   const URL = "https://659afe2cd565feee2daabf11.mockapi.io/api/tracker";
   const [candidates, setCandidates] = useState([]);
 
+  // Fetches candidate data from the mock API using the specified URL
   const getCandidates = async () => {
     try {
       const response = await fetch(URL);
@@ -20,10 +23,13 @@ function App() {
     }
   };
 
+  // Calls getCandidates on component mount to initially fetch and set the list of candidates
   useEffect(() => {
     getCandidates();
   }, []);
 
+  
+// Deletes a candidate by sending a DELETE request to the API and updating the state
   const deleteCandidate = async (idToDelete) => {
     try {
       await fetch(`${URL}/${idToDelete}`, {
@@ -38,6 +44,7 @@ function App() {
     }
   };
 
+  // Adds a new candidate by sending a POST request to the API and updating the state
   const postNewCandidate = async (newCandidate) => {
     try {
       const response = await fetch(URL, {
@@ -57,6 +64,7 @@ function App() {
     }
   };
 
+  // Updates a candidate by sending a PUT request to the API and updating the state
   const updateCandidate = async (updatedCandidate) => {
     try {
       const response = await fetch(`${URL}/${updatedCandidate.id}`, {
@@ -79,6 +87,8 @@ function App() {
     }
   };
 
+
+  // Renders the main application UI
   return (
     <div className="App" id="pageTitle">
       <h1 className="display-6 fw-bold" id="header">

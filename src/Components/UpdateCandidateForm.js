@@ -3,6 +3,8 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 
+// Uses the useState hook to manage the state
+// Created a  state object containing information about the candidate to be updated, initialized with the values passed through props.candidate
 function UpdateCandidateForm(props) {
     const [show, setShow] = useState(false);
     const [updatedCandidate, setUpdatedCandidate] = useState({ ...props.candidate });
@@ -10,6 +12,7 @@ function UpdateCandidateForm(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    // Handles changes in the form inputs and updates the updatedCandidate state accordingly
     function handleChange(e) {
         const { name, value } = e.target;
         setUpdatedCandidate((prevData) => {
@@ -20,12 +23,15 @@ function UpdateCandidateForm(props) {
         });
     }
 
+    // Handles the form submission
     function handleSubmit(e) {
         e.preventDefault();
         props.clickUpdate(updatedCandidate);
         handleClose();
     }
 
+    // Renders a button labeled "Update" Clicking this button triggers the display of the modal
+    // The modal includes a form with fields for candidateName, jobTitle, and stage
     return (
         <>
             <Button type="submit" className="btn btn-info" size="sm" onClick={handleShow}>

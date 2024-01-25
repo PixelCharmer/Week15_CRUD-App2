@@ -1,6 +1,10 @@
+/* Imported fonts that are used in the app */
 @import url('https://fonts.googleapis.com/css2?family=Salsa&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap');
+
+
+/* All the styling used in the app */ 
 
 #newCandidateForm {
     border-radius: 25px;
@@ -37,12 +41,12 @@
 }
 
 #tableColor {
-    background-color: rgb(180, 204, 205);
+    background-color: rgb(24, 172, 177);
     border: 1px solid slategray;
 }
 
 #rowColor {
-    border: 1px solid slategray;
+    border: 1px solid #278cf2;
 }
 
 

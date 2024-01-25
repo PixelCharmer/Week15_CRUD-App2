@@ -5,11 +5,7 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
 
-
-
-
-
-
+// Creates a root for the React application, specifying the DOM element with the ID 'root' as the container
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

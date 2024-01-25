@@ -4,6 +4,7 @@ import UpdateCandidateForm from "./UpdateCandidateForm";
 
 export default function Candidate(props) {
     return (
+                // Renders a table row (<tr>) for a candidate
                 <tr>
                     <td>{props.candidate.candidateName}</td>
                     <td>{props.candidate.jobTitle}</td>
