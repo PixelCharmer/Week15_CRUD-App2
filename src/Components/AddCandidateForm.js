@@ -49,7 +49,7 @@ export default function AddCandidateForm(props) {
     // The modal includes a form with fields for candidateName, jobTitle, and stage
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
+            <Button variant="primary" onClick={handleShow} id="newBtn">
                 Create New Candidate
             </Button>
 

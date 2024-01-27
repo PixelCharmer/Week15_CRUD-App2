@@ -1,6 +1,5 @@
 /* Imported fonts that are used in the app */
 @import url('https://fonts.googleapis.com/css2?family=Salsa&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap');
 
 
@@ -14,21 +13,6 @@
     background-color: rgb(68, 160, 217, 0.3);
     color: black;
     font-family: 'Salsa', cursive;
-}
-
-#addBtn {
-    margin-top: 13px;
-    border: 1px solid gray;
-    padding: 9px;
-}
-
-
-#cardheader {
-    border-radius: 15px;
-    border: 2px solid rgb(99, 93, 93, 0.3);
-    background-color: rgb(60, 218, 229, 0.3);
-    color: black;
-    font-family: 'Rowdies', sans-serif;
 }
 
 #header {
@@ -47,6 +31,12 @@
 
 #rowColor {
     border: 1px solid #278cf2;
+}
+
+#newBtn{
+    margin-bottom: 15px;
+    margin-left: 20px;
+    background-color: #ff0099;
 }
 
 
