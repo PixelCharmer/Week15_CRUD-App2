@@ -32,7 +32,7 @@
 
 ## About The Project
 
-![Screen Shot](https://github.com/PixelCharmer/Week15_CRUD-App2/assets/145899504/1e3200a6-2bcb-4424-bb3d-81ca5d44c368)
+![Screen Shot](https://github.com/PixelCharmer/Week15_CRUD-App2/assets/145899504/dbe0315f-47a1-4be7-96ce-4e362294a0c2)
 
 This is a simple Candidate Tracker web application built using React. The app allows users to track and manage candidates for various positions. It includes features such as adding new candidates, updating candidate information, and deleting candidates.
 
