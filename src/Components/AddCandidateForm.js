@@ -90,14 +90,14 @@ export default function AddCandidateForm(props) {
                                 value={newCandidate.stage}
                                 onChange={handleChange}
                             >
-                                <option value="">--Current Status--</option>
-                                <option value="1">Under Review</option>
-                                <option value="2">Interviewing</option>
-                                <option value="3">Pending Feedback</option>
-                                <option value="4">Offer Extended</option>
-                                <option value="5">Offer Rescinded</option>
-                                <option value="6">Offer Accepted</option>
-                                <option value="7">Offer Rejected</option>
+                                <option value="--Current Status--">--Current Status--</option>
+                                <option value="Under Review">Under Review</option>
+                                <option value="Interviewing">Interviewing</option>
+                                <option value="Pending Feedback">Pending Feedback</option>
+                                <option value="Offer Extended">Offer Extended</option>
+                                <option value="Offer Rescinded">Offer Rescinded</option>
+                                <option value="Offer Accepted">Offer Accepted</option>
+                                <option value="Offer Rejected">Offer Rejected</option>
                             </Form.Select>
                         </Form.Group>
                         <Button variant="success" type="submit">
